@@ -43,7 +43,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aut.cs" />
+    <Compile Include="Author.cs" />
     <Compile Include="BookInfo.cs" />
     <Compile Include="LibraryService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -51,6 +51,9 @@
   <ItemGroup>
     <None Include="demo-interface.thrift" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Commands.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

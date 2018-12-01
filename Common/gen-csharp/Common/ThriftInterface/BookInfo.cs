@@ -24,9 +24,9 @@ namespace Common.ThriftInterface
   public partial class BookInfo : TBase
   {
     private int _Id;
-    private Aut _Author;
+    private Author _Author;
     private string _Title;
-    private int _Rating;
+    private int _PageCount;
 
     public int Id
     {
@@ -41,7 +41,7 @@ namespace Common.ThriftInterface
       }
     }
 
-    public Aut Author
+    public Author Author
     {
       get
       {
@@ -67,16 +67,16 @@ namespace Common.ThriftInterface
       }
     }
 
-    public int Rating
+    public int PageCount
     {
       get
       {
-        return _Rating;
+        return _PageCount;
       }
       set
       {
-        __isset.Rating = true;
-        this._Rating = value;
+        __isset.PageCount = true;
+        this._PageCount = value;
       }
     }
 
@@ -89,7 +89,7 @@ namespace Common.ThriftInterface
       public bool Id;
       public bool Author;
       public bool Title;
-      public bool Rating;
+      public bool PageCount;
     }
 
     public BookInfo() {
@@ -119,7 +119,7 @@ namespace Common.ThriftInterface
               break;
             case 2:
               if (field.Type == TType.Struct) {
-                Author = new Aut();
+                Author = new Author();
                 Author.Read(iprot);
               } else { 
                 TProtocolUtil.Skip(iprot, field.Type);
@@ -134,7 +134,7 @@ namespace Common.ThriftInterface
               break;
             case 4:
               if (field.Type == TType.I32) {
-                Rating = iprot.ReadI32();
+                PageCount = iprot.ReadI32();
               } else { 
                 TProtocolUtil.Skip(iprot, field.Type);
               }
@@ -184,12 +184,12 @@ namespace Common.ThriftInterface
           oprot.WriteString(Title);
           oprot.WriteFieldEnd();
         }
-        if (__isset.Rating) {
-          field.Name = "Rating";
+        if (__isset.PageCount) {
+          field.Name = "PageCount";
           field.Type = TType.I32;
           field.ID = 4;
           oprot.WriteFieldBegin(field);
-          oprot.WriteI32(Rating);
+          oprot.WriteI32(PageCount);
           oprot.WriteFieldEnd();
         }
         oprot.WriteFieldStop();
@@ -222,11 +222,11 @@ namespace Common.ThriftInterface
         __sb.Append("Title: ");
         __sb.Append(Title);
       }
-      if (__isset.Rating) {
+      if (__isset.PageCount) {
         if(!__first) { __sb.Append(", "); }
         __first = false;
-        __sb.Append("Rating: ");
-        __sb.Append(Rating);
+        __sb.Append("PageCount: ");
+        __sb.Append(PageCount);
       }
       __sb.Append(")");
       return __sb.ToString();

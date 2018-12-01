@@ -3,12 +3,12 @@
 struct BookInfo
 {
   1: i32 Id,
-  2: Aut Author,
+  2: Author Author,
   3: string Title,
-  4: i32 Rating,
+  4: i32 PageCount,
 }
 
-struct Aut
+struct Author
 {
 	1: string Name
 }

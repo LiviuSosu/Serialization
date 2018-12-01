@@ -21,7 +21,7 @@ namespace Common.ThriftInterface
   #if !SILVERLIGHT
   [Serializable]
   #endif
-  public partial class Aut : TBase
+  public partial class Author : TBase
   {
     private string _Name;
 
@@ -47,7 +47,7 @@ namespace Common.ThriftInterface
       public bool Name;
     }
 
-    public Aut() {
+    public Author() {
     }
 
     public void Read (TProtocol iprot)
@@ -90,7 +90,7 @@ namespace Common.ThriftInterface
       oprot.IncrementRecursionDepth();
       try
       {
-        TStruct struc = new TStruct("Aut");
+        TStruct struc = new TStruct("Author");
         oprot.WriteStructBegin(struc);
         TField field = new TField();
         if (Name != null && __isset.Name) {
@@ -111,7 +111,7 @@ namespace Common.ThriftInterface
     }
 
     public override string ToString() {
-      StringBuilder __sb = new StringBuilder("Aut(");
+      StringBuilder __sb = new StringBuilder("Author(");
       bool __first = true;
       if (Name != null && __isset.Name) {
         if(!__first) { __sb.Append(", "); }

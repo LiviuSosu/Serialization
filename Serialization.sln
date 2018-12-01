@@ -24,6 +24,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvroSerializer", "Avro\Avro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Protobuf_Classic", "Protobuf_Classic\Protobuf_Classic.csproj", "{D2D05E0F-F30C-413C-A037-2644CD22843B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Json", "Json", "{81655337-F671-4DE1-95C8-931223854881}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonSerializer", "JsonSerializer\JsonSerializer.csproj", "{BCDB831A-4508-488A-8F24-8558B92698EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +58,10 @@ Global
 		{D2D05E0F-F30C-413C-A037-2644CD22843B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2D05E0F-F30C-413C-A037-2644CD22843B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2D05E0F-F30C-413C-A037-2644CD22843B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCDB831A-4508-488A-8F24-8558B92698EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCDB831A-4508-488A-8F24-8558B92698EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCDB831A-4508-488A-8F24-8558B92698EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCDB831A-4508-488A-8F24-8558B92698EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,6 +73,7 @@ Global
 		{DEB46CC4-8C80-45E8-B384-4CB5BE0A70E3} = {9D85557A-C0EA-4BB1-8959-2896830B95DE}
 		{9D70A982-8B9F-4308-B9B0-A05F4F01ED37} = {90307A9E-B5A5-490E-AA3E-1C8531BB8841}
 		{D2D05E0F-F30C-413C-A037-2644CD22843B} = {9D85557A-C0EA-4BB1-8959-2896830B95DE}
+		{BCDB831A-4508-488A-8F24-8558B92698EF} = {81655337-F671-4DE1-95C8-931223854881}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5D2CF5D2-1B6D-4BCB-A20F-00B5D9803EDB}

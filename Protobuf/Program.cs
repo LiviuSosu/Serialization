@@ -17,9 +17,9 @@ namespace Protobuf
             {
                 Name = "Gheorghe"
             };
-            objTutorial.Name = "Name 1";
+            objTutorial.Title = "Name 1";
             objTutorial.PageCount = 50;
-            objTutorial.Extra = "Extra";
+
             byte[] tempByte = GPBSerialization(objTutorial);
             Book objReconstructed = (Book)GDPDeserialization(tempByte);
         }

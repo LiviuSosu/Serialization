@@ -13,11 +13,9 @@ namespace Protobuf
         [ProtoMember(1)]
         public Author Author { get; set; }
         [ProtoMember(2)]
-        public string Name { get; set; }
+        public string Title { get; set; }
         [ProtoMember(3)]
         public int PageCount { get; set; }
-        [ProtoMember(4)]
-        public string Extra { get; set; }
     }
 
     [ProtoContract]
