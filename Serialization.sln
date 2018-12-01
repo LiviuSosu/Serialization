@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProtocolBuffer", "ProtocolBuffer", "{9D85557A-C0EA-4BB1-8959-2896830B95DE}"
+	ProjectSection(SolutionItems) = preProject
+		Refferences.txt = Refferences.txt
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Thrifft", "Thrifft", "{EF60AB24-18BA-41A7-87F1-8896E7F35F58}"
 	ProjectSection(SolutionItems) = preProject
