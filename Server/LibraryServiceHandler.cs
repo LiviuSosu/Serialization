@@ -9,20 +9,26 @@ namespace Server
 {
     internal class LibraryServiceHandler : LibraryService.Iface
     {
-        public List<BookInfo> GetAllBooks() {
-
-            var bookInfo = new BookInfo();
-            bookInfo.Id = 1;
-            bookInfo.Author = new Author() { Name="Gheorghe"};
-            bookInfo.Title = "Title 1";
-            bookInfo.PageCount = 5;
-
+        public List<BookInfo> GetAllBooks()
+        {
+            BookInfo bookInfo;
             var bookInfos = new List<BookInfo>();
-            bookInfos.Add(bookInfo);
+            for (int i = 1; i <= Config.Config.DataSetSize; i++)
+            {
+                bookInfo = new BookInfo();
+                bookInfo.Id = i;
+                bookInfo.Author = new Author() { Name = "Author name "+i };
+                bookInfo.Title = "Title "+i;
+                bookInfo.PageCount = i;
+
+                bookInfos.Add(bookInfo);
+            }
+
             return bookInfos;
         }
 
-        public BookInfo GetBook(int bookId) {
+        public BookInfo GetBook(int bookId)
+        {
             var bookInfo = new BookInfo();
             bookInfo.Id = 1;
             bookInfo.Author = new Author() { Name = "Gheorghe" };

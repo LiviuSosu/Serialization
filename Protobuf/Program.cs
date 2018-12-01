@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,16 +13,30 @@ namespace Protobuf
     {
         static void Main(string[] args)
         {
-            Book objTutorial = new Book();
-            objTutorial.Author = new Author()
-            {
-                Name = "Gheorghe"
-            };
-            objTutorial.Title = "Name 1";
-            objTutorial.PageCount = 50;
+            var books = new List<BookInfo>();
+            BookInfo bookInfo;
 
-            byte[] tempByte = GPBSerialization(objTutorial);
-            Book objReconstructed = (Book)GDPDeserialization(tempByte);
+            for (int i = 1; i <= Config.Config.DataSetSize; i++)
+            {
+                bookInfo = new BookInfo();
+
+                bookInfo.Id = i;
+                bookInfo.Author = new Author()
+                {
+                    Name = "Author name " + i
+                };
+                bookInfo.PageCount = i;
+                bookInfo.Title = "Title " + i;
+
+                books.Add(bookInfo);
+            }
+
+            var sw = new Stopwatch();
+            sw.Start();
+            byte[] tempByte = GPBSerialization(books);
+            var objReconstructed = (List<BookInfo>)GDPDeserialization(tempByte);
+            sw.Stop();
+            long elapsedMilliseconds = sw.ElapsedMilliseconds;
         }
 
         public static byte[] GPBSerialization(object objectToSerialize)
@@ -54,7 +69,7 @@ namespace Protobuf
             {
                 using (MemoryStream stream = new MemoryStream(data))
                 {
-                    return Serializer.Deserialize(typeof(Book), stream);
+                    return Serializer.Deserialize(typeof(List<BookInfo>), stream);
                 }
             }
             catch

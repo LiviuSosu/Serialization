@@ -8,13 +8,15 @@ using System.Threading.Tasks;
 namespace Protobuf
 {
     [ProtoContract]
-    public class Book
+    public class BookInfo
     {
         [ProtoMember(1)]
-        public Author Author { get; set; }
+        public int Id { get; set; }
         [ProtoMember(2)]
-        public string Title { get; set; }
+        public Author Author { get; set; }
         [ProtoMember(3)]
+        public string Title { get; set; }
+        [ProtoMember(4)]
         public int PageCount { get; set; }
     }
 

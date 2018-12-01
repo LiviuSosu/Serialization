@@ -1,6 +1,7 @@
 ﻿using Common.ThriftInterface;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,8 +20,12 @@ namespace Client
 
             transport.Open();
 
+            var sw = new Stopwatch();
+            sw.Start();
             var allBooks = client.GetAllBooks(); // Actual Thrift call
-            var firstBook = client.GetBook(allBooks.First().Id); // Actual Thrift call
+            sw.Stop();
+            long elapsedMilliseconds = sw.ElapsedMilliseconds;
+            // var firstBook = client.GetBook(allBooks.First().Id); // Actual Thrift call
         }
     }
 }
