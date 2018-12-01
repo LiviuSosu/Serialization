@@ -24,8 +24,9 @@ namespace Common.ThriftInterface
   public partial class BookInfo : TBase
   {
     private int _Id;
-    private string _Author;
+    private Aut _Author;
     private string _Title;
+    private int _Rating;
 
     public int Id
     {
@@ -40,7 +41,7 @@ namespace Common.ThriftInterface
       }
     }
 
-    public string Author
+    public Aut Author
     {
       get
       {
@@ -66,6 +67,19 @@ namespace Common.ThriftInterface
       }
     }
 
+    public int Rating
+    {
+      get
+      {
+        return _Rating;
+      }
+      set
+      {
+        __isset.Rating = true;
+        this._Rating = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -75,6 +89,7 @@ namespace Common.ThriftInterface
       public bool Id;
       public bool Author;
       public bool Title;
+      public bool Rating;
     }
 
     public BookInfo() {
@@ -103,8 +118,9 @@ namespace Common.ThriftInterface
               }
               break;
             case 2:
-              if (field.Type == TType.String) {
-                Author = iprot.ReadString();
+              if (field.Type == TType.Struct) {
+                Author = new Aut();
+                Author.Read(iprot);
               } else { 
                 TProtocolUtil.Skip(iprot, field.Type);
               }
@@ -112,6 +128,13 @@ namespace Common.ThriftInterface
             case 3:
               if (field.Type == TType.String) {
                 Title = iprot.ReadString();
+              } else { 
+                TProtocolUtil.Skip(iprot, field.Type);
+              }
+              break;
+            case 4:
+              if (field.Type == TType.I32) {
+                Rating = iprot.ReadI32();
               } else { 
                 TProtocolUtil.Skip(iprot, field.Type);
               }
@@ -147,10 +170,10 @@ namespace Common.ThriftInterface
         }
         if (Author != null && __isset.Author) {
           field.Name = "Author";
-          field.Type = TType.String;
+          field.Type = TType.Struct;
           field.ID = 2;
           oprot.WriteFieldBegin(field);
-          oprot.WriteString(Author);
+          Author.Write(oprot);
           oprot.WriteFieldEnd();
         }
         if (Title != null && __isset.Title) {
@@ -159,6 +182,14 @@ namespace Common.ThriftInterface
           field.ID = 3;
           oprot.WriteFieldBegin(field);
           oprot.WriteString(Title);
+          oprot.WriteFieldEnd();
+        }
+        if (__isset.Rating) {
+          field.Name = "Rating";
+          field.Type = TType.I32;
+          field.ID = 4;
+          oprot.WriteFieldBegin(field);
+          oprot.WriteI32(Rating);
           oprot.WriteFieldEnd();
         }
         oprot.WriteFieldStop();
@@ -190,6 +221,12 @@ namespace Common.ThriftInterface
         __first = false;
         __sb.Append("Title: ");
         __sb.Append(Title);
+      }
+      if (__isset.Rating) {
+        if(!__first) { __sb.Append(", "); }
+        __first = false;
+        __sb.Append("Rating: ");
+        __sb.Append(Rating);
       }
       __sb.Append(")");
       return __sb.ToString();

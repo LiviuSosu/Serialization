@@ -43,6 +43,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aut.cs" />
     <Compile Include="BookInfo.cs" />
     <Compile Include="LibraryService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

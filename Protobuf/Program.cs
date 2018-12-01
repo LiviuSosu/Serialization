@@ -12,12 +12,16 @@ namespace Protobuf
     {
         static void Main(string[] args)
         {
-            Tutorial objTutorial = new Tutorial();
-            objTutorial.Author = "Author";
+            Book objTutorial = new Book();
+            objTutorial.Author = new Author()
+            {
+                Name = "Gheorghe"
+            };
             objTutorial.Name = "Name 1";
             objTutorial.PageCount = 50;
+            objTutorial.Extra = "Extra";
             byte[] tempByte = GPBSerialization(objTutorial);
-            Tutorial objReconstructed = (Tutorial)GDPDeserialization(tempByte);
+            Book objReconstructed = (Book)GDPDeserialization(tempByte);
         }
 
         public static byte[] GPBSerialization(object objectToSerialize)
@@ -50,7 +54,7 @@ namespace Protobuf
             {
                 using (MemoryStream stream = new MemoryStream(data))
                 {
-                    return Serializer.Deserialize(typeof(Tutorial), stream);
+                    return Serializer.Deserialize(typeof(Book), stream);
                 }
             }
             catch

@@ -1,3 +1,6 @@
 Basic tutorial: https://headsigned.com/posts/csharp-apache-thrift-demo/
 Download: http://www.apache.org/dyn/closer.cgi?path=/thrift/0.11.0/thrift-0.11.0.exe
+deomo command: thrift-0.9.3.exe --gen csharp demo-interface.thrift
 
+https://github.com/protocolbuffers/protobuf/tree/master/csharp
+https://github.com/protocolbuffers/protobuf/releases

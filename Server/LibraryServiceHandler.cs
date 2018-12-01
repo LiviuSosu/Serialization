@@ -13,8 +13,9 @@ namespace Server
 
             var bookInfo = new BookInfo();
             bookInfo.Id = 1;
-            bookInfo.Author = "Author 1";
+            bookInfo.Author = new Aut() { Name="Gheorghe"};
             bookInfo.Title = "Title 1";
+            bookInfo.Rating = 5;
 
             var bookInfos = new List<BookInfo>();
             bookInfos.Add(bookInfo);
@@ -24,7 +25,7 @@ namespace Server
         public BookInfo GetBook(int bookId) {
             var bookInfo = new BookInfo();
             bookInfo.Id = 1;
-            bookInfo.Author = "Author 1";
+            bookInfo.Author = new Aut() { Name = "Gheorghe" };
             bookInfo.Title = "Title 1";
 
             return bookInfo;
