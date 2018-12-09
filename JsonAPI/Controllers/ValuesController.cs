@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
+using System.IO;
 using System.Threading.Tasks;
 using JsonSerializer;
 using Microsoft.AspNetCore.Mvc;
@@ -55,6 +52,18 @@ namespace JsonAPI.Controllers
             }
         }
 
-   
+        [HttpGet]
+        [Route("/api/Download")]
+        public async Task<ActionResult> DownloadFile()
+        {
+            string filePath = @"C:\Users\lsosu\Work\Proiecte\Personale\Serialization\Serialization\Protobuf_Classic\bin\Debug\netcoreapp2.1\Data.dat";
+            var memory = new MemoryStream();
+            using (var stream = new FileStream(filePath, FileMode.Open))
+            {
+                await stream.CopyToAsync(memory);
+            }
+            memory.Position = 0;
+            return File(memory, "application/octet-stream", Path.GetFileName(filePath));
+        }
     }
 }
