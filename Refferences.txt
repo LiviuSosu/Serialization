@@ -1,1 +1,4 @@
 youtube tutorial: https://www.youtube.com/watch?v=yEQOl_wcXX8
+https://repo1.maven.org/maven2/com/google/protobuf/protoc/3.6.1/
+
+protoc -I=C:\Users\lsosu\Work\Proiecte\Personale\Serialization\Serialization\Protobuf_Classic --csharp_out=C:\Users\lsosu\Work\Proiecte\Personale\Serialization\Serialization\Protobuf_Classic C:\Users\lsosu\Work\Proiecte\Personale\Serialization\Serialization\Protobuf_Classic\demo-interface.proto

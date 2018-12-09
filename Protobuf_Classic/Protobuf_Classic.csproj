@@ -10,4 +10,8 @@
     <PackageReference Include="Google.Protobuf.Tools" Version="3.6.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Config\Config.csproj" />
+  </ItemGroup>
+
 </Project>
