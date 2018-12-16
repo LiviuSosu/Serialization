@@ -18,7 +18,7 @@ namespace Protobuf_Classic
             {
                 bookInfo = new BookInfo();
                 bookInfo.Id = i;
-                bookInfo.Author = new Author() { Name = "Author name " + i };
+                bookInfo.Author = new Author() { Name = "Author name " + i};
                 bookInfo.Title = "Title " + i;
                 bookInfo.PageCount = i;
 
@@ -26,18 +26,21 @@ namespace Protobuf_Classic
             }
             var sw = new Stopwatch();
             sw.Start();
-            using (var output = File.Create("Data.dat"))
+
+            string fileName = Config.Config.ProtobufFilePath;
+
+            using (var output = File.Create(fileName))
             {
                 books.WriteTo(output);
             }
 
-            using (var input = File.OpenRead("Data.dat"))
+            using (var input = File.OpenRead(fileName))
             {
                 books = Books.Parser.ParseFrom(input);
             }
             sw.Stop();
             long elapsedMilliseconds = sw.ElapsedMilliseconds;
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Finished!");
         }
     }
 }

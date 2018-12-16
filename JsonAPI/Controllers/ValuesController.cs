@@ -53,10 +53,24 @@ namespace JsonAPI.Controllers
         }
 
         [HttpGet]
-        [Route("/api/Download")]
+        [Route("/api/DownloadDat")]
         public async Task<ActionResult> DownloadFile()
         {
-            string filePath = @"C:\Users\lsosu\Work\Proiecte\Personale\Serialization\Serialization\Protobuf_Classic\bin\Debug\netcoreapp2.1\Data.dat";
+            string filePath = Config.Config.ProtobufFilePath;
+            var memory = new MemoryStream();
+            using (var stream = new FileStream(filePath, FileMode.Open))
+            {
+                await stream.CopyToAsync(memory);
+            }
+            memory.Position = 0;
+            return File(memory, "application/octet-stream", Path.GetFileName(filePath));
+        }
+
+        [HttpGet]
+        [Route("/api/DownloadJson")]
+        public async Task<ActionResult> DownloadJsonFile()
+        {
+            string filePath = Config.Config.JsonFilePath;
             var memory = new MemoryStream();
             using (var stream = new FileStream(filePath, FileMode.Open))
             {

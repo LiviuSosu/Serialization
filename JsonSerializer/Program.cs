@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 
 namespace JsonSerializer
 {
@@ -28,11 +29,14 @@ namespace JsonSerializer
             var sw = new Stopwatch();
             sw.Start();
             string serializedBooks = Newtonsoft.Json.JsonConvert.SerializeObject(books);
+
+            //File.WriteAllText(Config.Config.JsonFilePath, serializedBooks);
+
             Newtonsoft.Json.JsonConvert.DeserializeObject<List<BookInfo>>(serializedBooks);
             sw.Stop();
             long elapsedMilliseconds = sw.ElapsedMilliseconds;
 
-            Console.WriteLine("Done");
+            Console.WriteLine("Finished!");
         }
     }
 }
